@@ -28,12 +28,18 @@ for allowed in allowedActualDict.keys():
         if letter == countChar:
             letterCount += 1
 
+    printStr += f"Found {letterCount} time(s)."
+
     if rangeStart <= letterCount <= rangeEnd: 
         validPasswords += 1
-        printStr += "Valid"
+        printStr += "Valid. "
+        printStr += f"{validPasswords} valid passwords so far."
     else:
-        printStr += "Invalid"
-    printStr += f". Found {letterCount} time(s)."
+        printStr += "Invalid. "
+    
     print(printStr)
 
+
+
+print("There are " + str(len(allowedActualDict)) + " passwords in list.")
 print(f"Found Solution: {validPasswords} are valid.")
