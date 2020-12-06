@@ -62,7 +62,11 @@ def procHgt(inStr):
         if workStr[:3].isdigit():
             if 150 <= int(workStr[:3]) <= 193:
                 return True
-    print("HgtTest")
+    if "in" in workStr:
+        if workStr[:2].isdigit():
+            if 59 <= int(workStr[:2]) <= 76:
+                return True
+    #print("HgtTest")
     return False
 
 def procHcl(inStr):
@@ -72,14 +76,15 @@ def procHcl(inStr):
             if not letter in "0123456789abcdef":
                 return False
         return True
-    print("HclTest")
+    #print("HclTest")
+    #print(workStr[1:])
     return False
 
 def procEcl(inStr):
     workStr = inStr[4:]
     if workStr in ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]:
         return True
-    print("EclTest")
+    #print("EclTest")
     return False
     
 
@@ -88,7 +93,7 @@ def procPid(inStr):
     if len(workStr) == 9 and workStr.isdigit():
         return True
     else:
-        print("pidTest")
+        #print("pidTest")
         return False
 
 
@@ -98,36 +103,43 @@ def checkValidity(passTup):
             if procByr(field):
                 continue
             else:
+                print(field)
                 return False
         if field[:3] == "iyr":
             if procIyr(field):
                 continue
             else:
+                print(field)
                 return False
         if field[:3] == "eyr":
             if procEyr(field):
                 continue
             else:
+                print(field)
                 return False
         if field[:3] == "hgt":
             if procHgt(field):
                 continue
             else:
+                print(field)
                 return False
         if field[:3] == "hcl":
             if procHcl(field):
                 continue
             else:
+                print(field)
                 return False
         if field[:3] == "ecl":
             if procEcl(field):
                 continue
             else:
+                print(field)
                 return False
         if field[:3] == "pid":
             if procPid(field):
                 continue
             else:
+                print(field)
                 return False
     return True
 
@@ -136,9 +148,10 @@ for passP in processedPassports:
     if checkValidity(passP):
         validPasswords += 1
     else:
-        print(passP)
+        pass
+        #print(passP)
 
-print(processedPassports[5])
+
 print(validPasswords)
 
 
